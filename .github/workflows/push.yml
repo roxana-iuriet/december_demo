@@ -14,9 +14,8 @@ jobs:
               run: echo "Hello World!"
     
     second-job:
-        environment: 
-            name: Dev
         runs-on: ubuntu-latest
+        environment: Dev
         steps:
             - name: do something
               run: echo "Hello again"
@@ -26,4 +25,4 @@ jobs:
         needs: [second-job]
         steps:
             - name: echo secret
-              run: echo "echo the secret value " ${{ secrets.HIDDEN_VALUE}}  
+              run: echo "echo the secret value  " ${{ secrets.HIDDEN_VALUE}}  
