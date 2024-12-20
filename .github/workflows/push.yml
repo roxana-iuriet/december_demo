@@ -12,3 +12,18 @@ jobs:
         steps:
             - name: my-step
               run: echo "Hello World!"
+    
+    second-job:
+        environment: 
+            name: Dev
+        runs-on: ubuntu-latest
+        steps:
+            - name: do something
+              run: echo "Hello again"
+
+    third-job: 
+        runs-on: ubuntu-latest
+        needs: [second-job]
+        steps:
+            - name: echo secret
+              run: echo "echo the secret value " ${{ secrets.HIDDEN_VALUE}}  
