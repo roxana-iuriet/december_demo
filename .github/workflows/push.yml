@@ -1,0 +1,14 @@
+name: MyPushWorkflow
+on:
+    push:
+        branches:
+            - dev
+            - main
+    workflow_dispatch:
+
+jobs:
+    demo-job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: my-step
+              run: echo "Hello World!"
